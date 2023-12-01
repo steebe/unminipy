@@ -1,0 +1,14 @@
+# VENV/Python
+unminipy-env/
+__pycache__/
+*.pyc
+*.spec
+
+# pyinstaller
+build/
+dist/
+
+# OS
+*.local
+*.DS_Store
+Thumbs.db
