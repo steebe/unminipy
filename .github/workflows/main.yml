@@ -1,0 +1,44 @@
+name: main
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+\.[0-9]+\.[0-9]+'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Configure Python3
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Install pyinstaller
+      run: pip install pyinstaller && pip install -r requirements.txt
+
+    - name: Bootstrap venv
+      run: script/init.sh && source script/env-up.sh
+
+    - name: Build latest release
+      run: pyinstaller --onefile --paths unminipy-env/lib/python3.11/site-packages --hidden-import pyperclip -n unminipy unmini.py
+
+    - name: Release
+      uses: ncipollo/release-action@v1.13.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        allowUpdates: false
+        artifacts: "dist/unminipy"
+        bodyFile: releases.md
+        draft: false
+        makeLatest: true
+        name: Release ${{ github.ref }}
+        prerelease: false
+        removeArtifacts: true
+        skipIfReleaseExists: true
+        tag: ${{ github.ref }}
+
