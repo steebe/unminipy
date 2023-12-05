@@ -45,7 +45,7 @@ jobs:
         makeLatest: true
         name: Release ${{ github.ref_name }}
         prerelease: false
-        removeArtifacts: true
+        replacesArtifacts: true
         skipIfReleaseExists: true
         tag: ${{ github.ref_name }}
 
