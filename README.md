@@ -3,7 +3,7 @@
 A small utility for unminifying minified JSON to assist with readability.
 
 <p align="center">
-  <img src="./assets/logo.png" alt="focus"/>
+  <img width="300" height="300" src="./assets/logo.png" alt="focus"/>
 </p>
 
 ## script/
