@@ -2,6 +2,10 @@
 
 A small utility for unminifying minified JSON to assist with readability.
 
+<p align="center">
+  <img src="./assets/logo.png" alt="focus"/>
+</p>
+
 ## script/
 
 ### Using the venv
