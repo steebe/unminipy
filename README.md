@@ -6,9 +6,21 @@ A small utility for unminifying minified JSON to assist with readability.
   <img width="300" height="300" src="./assets/logo.png" alt="focus"/>
 </p>
 
-## script/
+## Usage
 
-### Using the venv
+To install unminipy, visit the [releases](https://github.com/steebe/unminipy/releases) page and install the latest.
+
+### Warning
+
+Presently, unminipy is only supported on MacOS. Soon, I will release versions compatible with Windows and Linux.
+
+---
+
+### Manual setup
+
+#### script/
+
+##### Using the venv
 
 To initialize the venv:
 ```shell
@@ -29,7 +41,7 @@ To deactivate the venv:
 (unminipy-env)[unminipy]$ source script/env-down.sh
 ```
 
-### Building
+##### Building
 ```shell
 # (with the venv active)
 [unminipy]$ script/build.sh
