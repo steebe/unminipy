@@ -10,15 +10,19 @@ def main():
     if cli_args.clip:
       try:
         unminified = json.loads(pyperclip.paste())
-      except:
+      except Exception as e:
         print("No valid JSON found in clipboard")
+        if cli_args.verbose:
+          print(e)
         return
     elif cli_args.file:
       try:
         json_file = open(cli_args.file)
         unminified = json.loads(json_file.read())
-      except:
+      except Exception as e:
         print("File provided is not a valid JSON file")
+        if cli_args.verbose:
+          print(e)
         return
 
     unminifiedPayload = json.dumps(unminified, indent = 2)
